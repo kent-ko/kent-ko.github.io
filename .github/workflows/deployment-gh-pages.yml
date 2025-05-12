@@ -36,10 +36,8 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
+        id: deployment
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          deploy_branch: main # Deploy directly from the main branch
-          deploy_folder: dist # Your build output folder
-
-
-          
+          # You don't need to specify deploy_branch and deploy_folder here
+          # when using upload-pages-artifact. The action infers this.
