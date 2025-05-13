@@ -1,15 +1,43 @@
-name: Test Deploy
+name: Deploy GitHub Pages
 
-on: [push]
+on:
+  push:
+    branches: [main] # Or your default branch name
+
+permissions:
+  id-token: write
+  pages: write
+  contents: read
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Or your preferred Node.js version
+
+      - name: Install dependencies
+        run: npm install # Or yarn install or pnpm install
+
+      - name: Build project
+        run: npm run build # Or yarn build or pnpm build
+        env:
+          BASE_URL: /
+
+      - name: Upload artifact for deployment
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: './dist' # Or your build output directory
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
+        id: deployment
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          # Request the ID token explicitly
+          oidc_client_id: ${{ secrets.ACTIONS_ID_TOKEN_REQUESTOR }}
