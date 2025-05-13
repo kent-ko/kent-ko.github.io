@@ -1,41 +1,15 @@
-name: Deploy GitHub Pages
+name: Test Deploy
 
-on:
-  push:
-    branches: [main] # Or your default branch name
-
-permissions:
-  id-token: write
-  pages: write
-  contents: read
+on: [push]
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18' # Or your preferred Node.js version
-
-      - name: Install dependencies
-        run: npm install # Or yarn install or pnpm install
-
-      - name: Build project
-        run: npm run build # Or yarn build or pnpm build
-        env:
-          BASE_URL: /
-
-      - name: Upload artifact for deployment
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: './dist' # Or your build output directory
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
-        id: deployment
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
