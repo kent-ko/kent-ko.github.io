@@ -1,19 +1,19 @@
 export default [
     {
         title: 'Classroom',
-        imgUrl: 'assets/ai-nerf-gun.jpg',
+        imgUrl: 'assets/classrom.jpeg',
         stack:['Angular', 'Typescript', 'CSS'],
         link: 'https://classroom.co.ke'
     },
     {
         title: 'Crowd Property',
-        imgUrl: 'assets/crowd.png',
+        imgUrl: 'assets/prop.png',
         stack:['Angular', 'Typescript', 'CSS'],
         link: 'https://classroom.co.ke'
     },
     {
         title: 'FMS',
-        imgUrl: 'assets/fms.png',
+        imgUrl: 'assets/fmsdash.png',
         stack:['Vite', 'React', 'Tailwind'],
         link: 'https://classroom.co.ke'
     }
