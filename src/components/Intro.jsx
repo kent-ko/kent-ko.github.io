@@ -4,7 +4,7 @@ const Intro = () => {
   return (
     <div className='flex items-center justify-center flex-col text-center pt-20 pb-6'>
         <h1 className='text-4xl md:text-7xl dark:text-white mb-1 md:mb-3 font-bold'>Ken Kipkorir</h1>
-        <p className='text-base md:text-xl mb-3 font-medium'>Front End Developer</p>
+        <p className='text-base md:text-xl mb-3 font-medium'>Front End Developer </p>
         <p className="text-sm max-w-xl mb-6 font-bold">
           I'm a front-end developer with a passion for crafting responsive, scalable, and user-first digital products. 
           I specialize in modern web technologies like React, Angular, and TypeScript—bringing UIs to life with clean code, 
